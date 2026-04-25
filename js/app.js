@@ -74,7 +74,7 @@ const PRODUCTS = [
     color:'#2e568a', iconText:'💨' },
   { id:'steps', cat:'Access', name:'Rear Wall Steps', brand:'All Terrain Campers', price:275, img:'/images/products/steps.jpg',
     desc:'Integrated rear wall steps for accessing the roof with gear stowed on top.',
-    specs:[['Location','Rear wall, driver or passenger side'],['Mount','Welded to aluminum frame'],['Install','Factory only']],
+    specs:[['Location','Rear wall, driver or passenger side'],['Mount','Welded to aluminium frame'],['Install','Factory only']],
     color:'#5a6370', iconText:'↥' },
   { id:'tracks', cat:'Awnings & Racks', name:'Yakima Tracks — 108"', brand:'Yakima', price:495, img:'/images/products/tracks.jpg',
     desc:'Yakima roof-mounted track system. Accepts all Yakima crossbars and gear mounts. The 72" version is also available ($355).',
@@ -283,7 +283,7 @@ const CFG_RESULTS = {
   'full-short': {name:'Ocelot or Panther', desc:'Full-size short-bed 6.5\' trucks. Panther is 84" wide, Ocelot is 72-78" wide. Both 80" floor, 128" roof.', price:'$20,995', img:'PU003.jpg', anchor:'#ocelot'},
   'full-long':  {name:'Cougar or Puma',   desc:'Full-size long-bed 8\' trucks. Cougar is 84" wide, Puma is 72-78" wide. Both 96" floor, 144" roof.', price:'$21,350', img:'1000005253.jpg', anchor:'#cougar'},
   'mid-short':  {name:'Bobcat',            desc:'Built for Tacoma and mid-size short-bed trucks. 78"×69" bed, convertible couch, queen-size sleep with slide.', price:'$21,570', img:'BradUpgrades3.jpg', anchor:'#bobcat'},
-  'mid-long':   {name:'Lynx',              desc:'Mid-size 8\' long-bed. Same welded aluminum build as the Bobcat with more floor length.', price:'$21,925', img:'20251013_103241.jpg', anchor:'#lynx'},
+  'mid-long':   {name:'Lynx',              desc:'Mid-size 8\' long-bed. Same welded aluminium build as the Bobcat with more floor length.', price:'$21,925', img:'20251013_103241.jpg', anchor:'#lynx'},
 };
 function configPickSize(s){
   cfg.size = s;
@@ -528,7 +528,7 @@ const INFO = {
   },
   construction: {
     eyebrow:'Construction & Materials',
-    title:'Welded aluminum. Made to flex.',
+    title:'Welded aluminium. Made to flex.',
     body:`
       <blockquote class="verb">"We Produce Strong, Light-Weight, Welded Aluminium Frame Slide-In 4x4 Campers... Built to Survive!"</blockquote>
 
@@ -823,7 +823,7 @@ const MODELS = {
       ['Roof Load (up position)','1,000 lbs snow weight'],
       ['Fits','Toyota Tacoma, Ford Ranger, Dodge Dakota, Chevrolet S-10, Nissan small trucks'],
       ['Propane Tank','5 gallon'],['Water Tank','15 gallon'],
-      ['Build','Welded aluminum frame'],
+      ['Build','Welded aluminium frame'],
       ['Price','$21,570'],['Shell Price','$13,875'],
     ],
   },
@@ -838,14 +838,14 @@ const MODELS = {
     ],
     specs:[
       ['Fits',"Mid-size trucks with 8' bed"],
-      ['Build','Welded aluminum frame'],
+      ['Build','Welded aluminium frame'],
       ['Config','Long bed sibling of the Bobcat · shares Cougar/Puma long-bed floor plan'],
       ['Weight (fully built)','895 – 1,200 lbs'],['Shell Weight','560 – 1,200 lbs'],
       ['Roof Load (up position)','1,000 lbs snow weight'],
       ['Propane Tank','5 gallon'],['Water Tank','15 gallon'],
       ['Price','$21,925'],['Shell Price','$13,875'],
     ],
-    note:'The Lynx is the mid-size long-bed version of the Bobcat — same welded aluminum build, more floor length.',
+    note:'The Lynx is the mid-size long-bed version of the Bobcat — same welded aluminium build, more floor length.',
   },
   shell: {
     tag:'Build it out yourself · Empty shell', name:'Shell Model', price:'From $13,300',
