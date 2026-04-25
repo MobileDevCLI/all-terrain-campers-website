@@ -2,7 +2,13 @@
 
 This is the audit trail. For every non-trivial piece of copy on the site, this document records where it was sourced from. If you're ever asked "did you make this up?" the answer is here: no, we didn't.
 
-**Policy:** All marketing claims, testimonials, model descriptions, FAQ answers, and pricing on this site are pulled **verbatim** from the source website `allterraincampers.com` (scraped April 2026). No invented claims. No synthetic reviews. No spin.
+**Policy:** Every passage on this site that is presented as All Terrain Campers' own words — inside a `<blockquote class="verb">`, attributed to a named ATC customer, or rendered as a quoted model spec — is pulled **verbatim** from `allterraincampers.com` (scraped 2026-04-24 10:48 PDT; confirmed identical to live site via spot-check the same day). Testimonial length-cuts are marked with a visible `[...]` so the reader knows text was omitted; the words on either side of the cut are ATC's exact words, not a rewrite. No invented claims. No synthetic reviews. No paraphrasing in quote blocks.
+
+Items where ATC publishes no description (bullet-list labels on the Standard Features page) are rendered as labels with an honest note that ATC does not publish a description — the site does not fabricate one.
+
+Developer-written copy (shop product descriptions, spec-table labels, CTA buttons, nav labels, section headings, SEO meta tags) stands as the developer's voice and is **not** wrapped in verbatim markup.
+
+For the audit that produced this policy, see `../AUDIT_2026-04-24.md`.
 
 ---
 
@@ -61,19 +67,28 @@ Each model shows only verbatim content from our-campers.html:
 - **Product photos** — sourced from Amazon product listings + manufacturer sites, self-hosted in `/images/products/`
 - **Cold Weather Pack description** — allterraincampers.com FAQ, verbatim blockquote included
 
-## Standard Equipment (26 clickable items)
+## Standard Equipment — clickable items
 
-Each item's popup shows a verbatim description if one exists on the standard-features page. Specifically verbatim:
+**Policy (post-2026-04-24 audit):** items render in one of two modes depending on what ATC has actually published about each.
+
+**Mode 1 — Verbatim quote.** Items where ATC publishes a standalone written description, or where the item appears inside one of ATC's multi-item sentences. Each shows a `<blockquote class="verb">` of ATC's exact words, with source attribution:
 
 - **Stove:** "The stove is a 2 burner, flush mount with a protective glass top lid. The lid folds down when not in use, protecting the stove and giving you a usable, flat surface."
-- **Sink:** "Stainless steel sink and foldable faucet. Comes with electric water pump."
-- **12V outlet:** "A 12-volt outlet w/USB is standard in each model camper. Located in the cabinet to the right of the sink..."
-- **Fire extinguisher + smoke alarm:** "Each camper comes with a fire extinguisher and a smoke alarm. Hopefully, you'll never have to use the extinguisher."
-- **Storage:** "A generous amount of storage space in the cabinet and under the couch."
+- **Sink:** "Stainless steel sink and foldable faucet.  Comes with electric water pump."
+- **12V outlet with USB:** "A 12-volt outlet w/USB is standard in each model camper. Located in the cabinet to the right of the sink, you can plug in an appliance and set it on top of the icebox. Another outlet can be added to the camper in the front of the cabinet. Storage in cabinet."
+- **Fire extinguisher & smoke alarm:** "Each camper comes with a fire extinguisher and a smoke alarm. Hopefully, you'll never have to use the extinguisher."
+- **Generous storage:** "A generous amount of storage space in the cabinet and under the couch."
 - **Welded aluminum frame:** "Every camper is built with an aluminum frame that is made to flex with your truck bed without coming apart as most camper frames do over time."
-- **Materials pride:** "Everyone at All Terrain Campers takes a lot of pride not only in our workmanship but also in the materials we use to build your camper. That's why you will never find any particle or pressboard in our campers."
+- **Materials pride (no particle or pressboard):** "Everyone at All Terrain Campers takes a lot of pride not only in our workmanship but also in the materials we use to build your camper. That's why you will never find any particle or pressboard in our campers."
+- **Overhead bed:** "Our standard bed extends 48\" over your cab and has a very comfortable 4\" thick mattress. The bed's overall size varies with the model."
+- **Built by campers for campers:** "When you purchase an All-Terrain camper, you are buying a camper built by campers for campers. We use the campers we build... all the time!"
+- **Marine/RV Deep-Cycle battery / Screen door with deadbolt / Front picture window** — each shows ATC's composite sentence: "Marine/RV Deep-Cycle battery, a screen door with a deadbolt, and a front picture window."
+- **20-pound propane tank / 15-gallon water tank with monitor panel / 4 corner jack brackets / Roof Struts / Pre-wired for Solar Panel** — each shows ATC's full standard-features paragraph where that item is named, verbatim.
+- **Portable table / Lower couch that makes into a bed / Storage in cabinets and under couches** — each shows ATC's "Standard features include…" sentence where that item is named.
 
-Items without specific ATC descriptions use generic factual statements marked as such.
+**Mode 2 — Label only, no quote.** Items ATC lists only as bullet labels (no written description). Render shows the label and an honest note: *"Listed on the All Terrain Campers Standard Features page as a standard-equipment bullet. ATC does not publish a separate written description for this item."* **Nothing is invented and placed inside quote marks.** Items in this group: Monitor panel · Inside and Porch LED lights · LED Marker lights · Large passenger side window · Curtains · 5-gallon propane tank · Drawer in cabinet · Roof vent · CO and LP monitor Alarm.
+
+**What changed vs the original build:** the original FEATURES array rendered every item inside a `<blockquote class="verb">` with a "Source: verbatim" footer regardless of whether ATC had actually published a description — about 18 of the 26 items had developer-written marketing copy presented as ATC's words. This was caught and fixed 2026-04-24. Full line-by-line record in `AUDIT_2026-04-24.md`.
 
 ## FAQ section (17 questions)
 
