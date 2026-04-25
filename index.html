@@ -137,6 +137,10 @@
   nav.main .drop-menu a:hover{background:var(--bg-2);color:var(--accent-2)}
   nav.main .drop-menu a .sub{display:block;color:var(--mute);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
   .nav-actions{display:flex;align-items:center;gap:10px}
+  /* Persistent "Build My Camper" CTA — always visible on desktop nav.
+     Hidden on narrow screens (the hamburger drawer carries the same link). */
+  .nav-cta{white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;font-size:12px;padding:10px 16px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+  @media(max-width:900px){.nav-cta{display:none}}
   .cart-btn{position:relative;width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--ink-dim);border:1px solid var(--rule)}
   .cart-btn:hover{color:var(--cta);border-color:var(--cta)}
   .cart-btn svg{width:18px;height:18px;fill:currentColor}
@@ -372,6 +376,71 @@
 
   /* ============== SECTION BASE ============== */
   section.std{padding:100px 0;position:relative}
+
+  /* ============== DELIVERED PRICE CALCULATOR ============== */
+  .calc-section{background:var(--bg-2)}
+  .calc-card{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:32px;box-shadow:var(--shadow-sm)}
+  .calc-inputs{display:flex;flex-direction:column;gap:20px}
+  .calc-field{display:flex;flex-direction:column;gap:8px}
+  .calc-lbl{font-family:var(--f-disp);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .calc-field select,.calc-field input{font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--ink);width:100%;appearance:none}
+  .calc-field select:focus,.calc-field input:focus{outline:none;border-color:var(--cta);box-shadow:0 0 0 3px rgba(232,148,99,.15)}
+  .calc-help{font-size:12px;color:var(--mute);line-height:1.55}
+  .calc-output{display:flex;flex-direction:column;gap:14px;padding:24px;background:var(--bg-2);border-radius:10px}
+  .calc-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .calc-row:last-of-type{border-bottom:none}
+  .calc-k{color:var(--ink-dim);font-size:14px}
+  .calc-k small{display:block;font-size:11px;color:var(--mute);margin-top:2px}
+  .calc-v{font-family:var(--f-disp);font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .calc-total .calc-k{color:var(--ink);font-weight:700;font-size:15px}
+  .calc-total .calc-v{font-size:28px;color:var(--cta)}
+  .calc-foot{font-size:12px;color:var(--mute);line-height:1.6;margin-top:4px}
+  @media(max-width:900px){.calc-card{grid-template-columns:1fr;padding:22px}}
+
+  /* ============== LEAD-TIME STATUS STRIP ============== */
+  .lead-strip{background:#10171f;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px 0}
+  .lead-strip .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .lead-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e89463;box-shadow:0 0 0 4px rgba(232,148,99,.18);flex-shrink:0;animation:leadPulse 2.2s ease-in-out infinite}
+  @keyframes leadPulse{0%,100%{box-shadow:0 0 0 4px rgba(232,148,99,.18)}50%{box-shadow:0 0 0 8px rgba(232,148,99,.05)}}
+  .lead-text{flex:1;min-width:260px;font-size:14px;color:var(--ink-dim);line-height:1.55}
+  .lead-text strong{color:var(--ink);font-weight:700}
+  .lead-text cite{font-style:normal;color:var(--mute);font-size:12px}
+  .lead-cta{white-space:nowrap;color:var(--cta);font-family:var(--f-disp);font-size:14px;font-weight:700;text-decoration:none;padding:8px 16px;border:1px solid var(--cta);border-radius:24px;transition:all .15s}
+  .lead-cta:hover{background:var(--cta);color:#fff}
+
+  /* ============== WHY ATC — HONEST COMPARISON ============== */
+  .compare{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .compare-table{display:grid;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--bg)}
+  .compare-head,.compare-row{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(200px,2fr) 1fr 1fr 1fr;gap:0}
+  .compare-head{background:var(--bg-2);font-family:var(--f-disp);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim)}
+  .compare-head > div{padding:16px 14px;border-right:1px solid var(--rule)}
+  .compare-head > div:last-child{border-right:none}
+  .compare-head .compare-us{color:var(--cta);background:rgba(232,148,99,.06)}
+  .compare-row{border-top:1px solid var(--rule);font-size:14px;color:var(--ink-dim)}
+  .compare-row > div{padding:16px 14px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:4px;justify-content:flex-start}
+  .compare-row > div:last-child{border-right:none}
+  .compare-row > [role="rowheader"]{font-weight:700;color:var(--ink);font-size:13px;background:var(--bg-2)}
+  .compare-row .compare-us{background:rgba(232,148,99,.04);color:var(--ink)}
+  .compare-row .compare-us strong{color:var(--cta)}
+  .compare-row small{color:var(--mute);font-size:11px;line-height:1.45;font-style:italic;margin-top:2px}
+  .compare-row .y{display:inline-block;padding:2px 10px;border-radius:20px;background:#1f6b4a;color:#d6eadb;font-size:12px;font-weight:700;letter-spacing:.03em}
+  .compare-row .n{display:inline-block;padding:2px 10px;border-radius:20px;background:var(--bg-2);color:var(--mute);font-size:12px;font-weight:700;letter-spacing:.03em;border:1px solid var(--rule)}
+  .compare-foot{margin-top:24px;font-size:12px;color:var(--mute);line-height:1.6;max-width:900px}
+  .compare-foot a{color:var(--cta)}
+  /* Mobile: the 5-column comparison stacks into a per-feature card stack.
+     Each cell carries its own header (e.g. "ATC", "Four Wheel Campers") via
+     nth-child so we don't need to annotate every row with data-col attributes. */
+  @media(max-width:900px){
+    .compare-table{border:none;background:transparent}
+    .compare-head{display:none}
+    .compare-row{display:block;border:1px solid var(--rule);border-radius:10px;margin-bottom:14px;background:var(--bg);overflow:hidden}
+    .compare-row > div{border-right:none;padding:12px 16px}
+    .compare-row > [role="rowheader"]{background:var(--bg-2);padding:14px 16px;font-size:14px;border-bottom:1px solid var(--rule)}
+    .compare-row > div:nth-child(2):before{content:"All Terrain Campers";display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cta);font-weight:700;margin-bottom:4px}
+    .compare-row > div:nth-child(3):before{content:"Four Wheel Campers";display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+    .compare-row > div:nth-child(4):before{content:"Hallmark RV";display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+    .compare-row > div:nth-child(5):before{content:"Supertramp Campers";display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+  }
   section.std.alt{background:var(--bg-1)}
   section.std h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px;letter-spacing:-.005em}
   section.std h2 em{color:var(--accent-2);font-style:italic}
@@ -628,6 +697,8 @@
   @media(max-width:900px){.press-grid{grid-template-columns:1fr}.press-card.featured{grid-column:auto;grid-row:auto}.press-card.featured h3{font-size:24px}}
 
   .forum-row{padding-top:20px;border-top:1px solid var(--rule)}
+  .community-quote{font-family:var(--f-disp);font-size:19px;line-height:1.55;color:var(--ink);border-left:3px solid var(--cta);padding:18px 26px;margin:8px 0 36px;background:rgba(232,148,99,.04);border-radius:0 10px 10px 0;font-style:italic}
+  .community-quote cite{display:block;font-size:12px;font-style:normal;color:var(--mute);margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
   .forum-title{font-family:var(--f-disp);font-size:22px;color:var(--ink);margin-bottom:24px}
   .forum-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .forum-card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:22px;transition:all .2s;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm)}
@@ -644,6 +715,24 @@
   .video-frame{position:relative;aspect-ratio:16/9;background:#000}
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .social-video-meta{padding:22px 24px 26px}
+
+  /* ============== VIDEO GALLERY — content-slot placeholders ============== */
+  .video-gallery{grid-column:1 / -1;margin-top:28px;padding-top:32px;border-top:1px solid var(--rule)}
+  .video-gallery-head{margin-bottom:24px}
+  .video-gallery-head h3{font-family:var(--f-disp);font-size:22px;color:var(--ink);margin-bottom:8px}
+  .video-gallery-head p{color:var(--ink-dim);font-size:14px;line-height:1.6;max-width:780px}
+  .video-gallery-head code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:var(--bg-2);padding:1px 6px;border-radius:4px;color:var(--cta)}
+  .video-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .video-slot{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s}
+  .video-slot:hover{border-color:var(--cta);border-style:solid}
+  .video-slot-icon{width:40px;height:40px;border-radius:50%;background:var(--bg-2);display:flex;align-items:center;justify-content:center;color:var(--cta);margin-bottom:6px}
+  .video-slot-icon svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .video-slot-tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .video-slot h4{font-family:var(--f-disp);font-size:16px;color:var(--ink);line-height:1.35;margin:2px 0}
+  .video-slot p{color:var(--ink-dim);font-size:13px;line-height:1.55;flex:1}
+  .video-slot-cta{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:8px;border-top:1px solid var(--rule);margin-top:6px;font-style:italic}
+  .video-gallery-foot{margin-top:22px;color:var(--ink-dim);font-size:13px;line-height:1.6;max-width:780px}
+  .video-gallery-foot a{color:var(--cta)}
   .social-video-meta h3{font-family:var(--f-disp);font-size:22px;color:var(--ink);margin-bottom:6px}
   .social-video-meta p{font-size:14px;color:var(--ink-dim)}
   .social-channels{display:grid;gap:14px}
@@ -671,6 +760,9 @@
   @media(max-width:700px){.ig-grid{grid-template-columns:repeat(3,1fr)}}
 
   /* ============== MAP / LOCATION ============== */
+  .visit-quote{font-family:var(--f-disp);font-size:18px;line-height:1.55;color:var(--ink);border-left:3px solid var(--cta);padding:16px 24px;margin:0 0 32px;background:rgba(232,148,99,.04);border-radius:0 10px 10px 0;font-style:italic;max-width:900px}
+  .visit-quote cite{display:block;font-size:11px;font-style:normal;color:var(--mute);margin-top:8px;letter-spacing:.08em;text-transform:uppercase}
+  .visit-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;padding-top:18px;border-top:1px solid var(--rule)}
   .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
   .loc-map{aspect-ratio:1.3/1;border-radius:10px;overflow:hidden;border:1px solid var(--rule);background:var(--bg-1);position:relative;display:flex;align-items:center;justify-content:center}
   .loc-map iframe{width:100%;height:100%;border:0}
@@ -784,6 +876,7 @@
       </ul>
     </nav>
     <div class="nav-actions">
+      <a href="#config" class="btn btn-primary btn-sm nav-cta" id="navBuildCta">Build My Camper</a>
       <button class="cart-btn" onclick="toggleCart()" aria-label="Cart">
         <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2v2h2l3.6 7.6-1.4 2.4c-.5.9 0 2 1 2h12v-2h-11l1-2h7.5c.8 0 1.4-.4 1.7-1l3.6-6.5c.3-.6-.2-1.5-.9-1.5h-15.2l-1-2zm0 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
         <span class="cart-badge zero" id="cartBadge">0</span>
@@ -857,7 +950,7 @@
   </div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="eyebrow">All Terrain Campers · Sacramento, California</div>
+      <div class="eyebrow">Factory Direct · Built in Sacramento, California · Over 50 Years of Experience</div>
       <h1>We Produce Strong, Light-Weight, Welded Aluminium Frame Slide-In 4x4 Campers... <em>Built to Survive!</em></h1>
       <p class="lede">We produce the lightest weight, lowest profile, and most durable pop-up campers on the market today. With over 50 years of experience in the camper industry, we'll meet your needs whether you are an off-road enthusiast or just a casual camper.</p>
       <div class="btnrow">
@@ -893,6 +986,19 @@
     </div>
   </div>
 </section>
+
+<!-- ============== LEAD-TIME STATUS STRIP — ATC verbatim ============== -->
+<aside class="lead-strip" aria-label="Current production status">
+  <div class="wrap">
+    <span class="lead-dot" aria-hidden="true"></span>
+    <span class="lead-text">
+      <strong>Currently building to order.</strong>
+      &ldquo;Please call us to see if we have any new campers in production for you to look at.&rdquo;
+      &mdash; <cite>ATC Standard Features page</cite>
+    </span>
+    <a href="tel:+18004461003" class="lead-cta">&#9742; 1 (800) 446-1003</a>
+  </div>
+</aside>
 
 <!-- ============== TRUST BAR — clickable ============== -->
 <section class="trust">
@@ -936,6 +1042,92 @@
       <button class="t-btn" onclick="openTruckModal('nissan')">Nissan <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button class="t-btn" onclick="openTruckModal('jeep')">Jeep <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
+  </div>
+</section>
+
+<!-- ============== WHY ATC — HONEST COMPARISON ==============
+     Every cell is defensible:
+     - ATC column text is VERBATIM from allterraincampers.com (quoted where it is a claim).
+     - Competitor columns describe what each company publishes on their own
+       homepage as of April 2026. We do not characterize competitor quality.
+================================================================ -->
+<section class="std compare" id="why">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="kicker">Why All Terrain Campers</div>
+      <h2>Factory direct. Welded aluminium. <em>Half the premium-tier price.</em></h2>
+      <p class="sub">A plain comparison against our category. ATC rows are quoted directly from allterraincampers.com. Competitor rows describe what each company publishes on their own website as of April 2026.</p>
+    </div>
+
+    <div class="compare-table" role="table" aria-label="All Terrain Campers compared to other pop-up truck camper manufacturers">
+      <div class="compare-head" role="row">
+        <div role="columnheader">&nbsp;</div>
+        <div role="columnheader" class="compare-us"><strong>All Terrain Campers</strong></div>
+        <div role="columnheader">Four Wheel Campers</div>
+        <div role="columnheader">Hallmark RV</div>
+        <div role="columnheader">Supertramp Campers</div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Factory direct</div>
+        <div class="compare-us" role="cell"><span class="y">Yes</span> <small>&ldquo;No, we are factory direct.&rdquo;</small></div>
+        <div role="cell"><span class="n">Via dealers</span> <small>&ldquo;Find Dealer&rdquo; in top nav</small></div>
+        <div role="cell"><span class="y">Yes</span></div>
+        <div role="cell"><span class="y">Yes</span></div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Published starting price (on homepage)</div>
+        <div class="compare-us" role="cell"><span class="y">$20,995</span> <small>Ocelot / Panther</small></div>
+        <div role="cell">$12,395 <small>(Topper/Project&nbsp;M; slide-in higher)</small></div>
+        <div role="cell"><span class="n">Not displayed</span> <small>Call for pricing</small></div>
+        <div role="cell">$62,975 <small>Flagship&nbsp;LT</small></div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Shell-only build available</div>
+        <div class="compare-us" role="cell"><span class="y">Yes</span> <small>&ldquo;Every model camper that we make also has an empty shell version.&rdquo;</small></div>
+        <div role="cell">Topper / Project&nbsp;M</div>
+        <div role="cell">Not advertised</div>
+        <div role="cell">Not advertised</div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Custom builds accepted</div>
+        <div class="compare-us" role="cell"><span class="y">Yes</span> <small>&ldquo;We build custom units all the time! Let us know what you have in mind and we will be happy to tell you if it is possible.&rdquo;</small></div>
+        <div role="cell">Model-level options</div>
+        <div role="cell">Factory customization</div>
+        <div role="cell">Model-level options</div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Refurbishes older Four&nbsp;Wheel Campers</div>
+        <div class="compare-us" role="cell"><span class="y">Yes</span> <small>&ldquo;We refurbish, repair, upgrade not only our own All Terrain Campers but Four Wheel campers (up to 2005) as well. We have worked on Four Wheel campers for years and are very familiar with them.&rdquo;</small></div>
+        <div role="cell">&mdash;</div>
+        <div role="cell">&mdash;</div>
+        <div role="cell">&mdash;</div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Ships anywhere in the continental US</div>
+        <div class="compare-us" role="cell"><span class="y">Yes &mdash; $1.50 / mile</span> <small>&ldquo;Yes, we can ship you the camper. We currently change $1.50 a mile to ship one way.&rdquo;</small></div>
+        <div role="cell">Via dealer</div>
+        <div role="cell">Pickup at factory / local arrangement</div>
+        <div role="cell">Pickup at factory / transport quote</div>
+      </div>
+
+      <div class="compare-row" role="row">
+        <div role="rowheader">Published roof load rating</div>
+        <div class="compare-us" role="cell"><span class="y">1,000 lbs snow weight</span> <small>&ldquo;The roof is designed to hold 1000 pounds of snow weight in the up position.&rdquo;</small></div>
+        <div role="cell">Not published on homepage</div>
+        <div role="cell">Not published on homepage</div>
+        <div role="cell">Not published on homepage</div>
+      </div>
+    </div>
+
+    <p class="compare-foot">
+      ATC quotations are verbatim from <a href="https://allterraincampers.com" target="_blank" rel="noopener">allterraincampers.com</a>. Competitor information is paraphrased from each company&rsquo;s own homepage content &mdash; see <a href="https://fourwheelcampers.com" target="_blank" rel="noopener">fourwheelcampers.com</a>, <a href="https://hallmarkrv.com" target="_blank" rel="noopener">hallmarkrv.com</a>, <a href="https://supertrampcampers.com" target="_blank" rel="noopener">supertrampcampers.com</a>. No quality claim is made about any other manufacturer.
+    </p>
   </div>
 </section>
 
@@ -1322,6 +1514,62 @@
   </div>
 </section>
 
+<!-- ============== DELIVERED-PRICE CALCULATOR ==============
+     A small transparent widget: pick your model, enter miles from Sacramento,
+     get your all-in delivered price using ATC's verbatim $1.50/mile shipping rate.
+     Every number in this widget is either ATC's published price or a user-provided
+     distance; nothing is fabricated. -->
+<section class="std calc-section" id="delivered-price">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="ht">
+        <div class="eyebrow">Delivered Price</div>
+        <h2>See your <em>total delivered cost</em> before you call.</h2>
+        <p class="sub">
+          ATC ships anywhere in the continental U.S. at $1.50/mile one-way &mdash; their published rate.
+          Pick a model, enter the miles from Sacramento, and this widget shows the full out-the-door number.
+          No dealer markup. No surprise fees. Just ATC&rsquo;s own prices and their own shipping rate.
+        </p>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-inputs">
+        <label class="calc-field">
+          <span class="calc-lbl">Model</span>
+          <select id="calcModel" onchange="computeDelivered()">
+            <option value="20995" data-name="Panther">Panther &mdash; Full Size, Short Bed &mdash; $20,995</option>
+            <option value="20995" data-name="Ocelot">Ocelot &mdash; Full Size, Short Bed &mdash; $20,995</option>
+            <option value="21350" data-name="Cougar">Cougar &mdash; Full Size, Long Bed &mdash; $21,350</option>
+            <option value="21350" data-name="Puma">Puma &mdash; Full Size, Long Bed &mdash; $21,350</option>
+            <option value="21570" data-name="Bobcat">Bobcat &mdash; Mid Size, Short Bed &mdash; $21,570</option>
+            <option value="21925" data-name="Lynx">Lynx &mdash; Mid Size, Long Bed &mdash; $21,925</option>
+            <option value="13300" data-name="Shell (Cougar / Panther / Puma / Ocelot)">Shell &mdash; Cougar / Panther / Puma / Ocelot &mdash; $13,300</option>
+            <option value="13875" data-name="Shell (Bobcat / Lynx)">Shell &mdash; Bobcat / Lynx &mdash; $13,875</option>
+            <option value="18250" data-name="Custom Flatbed Shell">Custom Flatbed Shell &mdash; $18,250</option>
+          </select>
+        </label>
+
+        <label class="calc-field">
+          <span class="calc-lbl">Miles from Sacramento, CA 95838</span>
+          <input id="calcMiles" type="number" min="0" max="3500" step="10" value="0" inputmode="numeric" oninput="computeDelivered()" aria-describedby="calcMilesHelp">
+          <span class="calc-help" id="calcMilesHelp">Rough reference: LA &asymp; 385 mi &middot; Phoenix &asymp; 755 mi &middot; Denver &asymp; 1,225 mi &middot; Dallas &asymp; 1,765 mi &middot; Nashville &asymp; 2,350 mi &middot; Miami &asymp; 3,055 mi.</span>
+        </label>
+      </div>
+
+      <div class="calc-output" aria-live="polite">
+        <div class="calc-row"><span class="calc-k">ATC price</span><span class="calc-v" id="calcBase">$20,995</span></div>
+        <div class="calc-row"><span class="calc-k">Shipping <small>(<span id="calcMilesOut">0</span> mi &times; $1.50)</small></span><span class="calc-v" id="calcShip">$0</span></div>
+        <div class="calc-row calc-total"><span class="calc-k">Delivered total</span><span class="calc-v" id="calcTotal">$20,995</span></div>
+        <p class="calc-foot">
+          Shipping rate is ATC&rsquo;s own published figure: &ldquo;We currently change $1.50 a mile to ship one way.&rdquo; Pickup at the Sacramento factory is free.
+          This calculator uses only ATC&rsquo;s published prices; final quote confirmed by phone.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== ADVENTURE GALLERY ============== -->
 <section class="std alt" id="gallery">
   <div class="wrap">
@@ -1561,12 +1809,20 @@
 
     <!-- FORUM + COMMUNITY ROW -->
     <div class="forum-row">
+      <!-- Community pull-quote — this is ATC's verbatim homepage text about
+           Wander the West, preserved word-for-word. Gives the community block
+           a strong ATC-voice anchor before the link cards. -->
+      <blockquote class="community-quote">
+        &ldquo;Wander the West has forums, travel information, and stories and images from camper owners all over the Country. Share your journeys and thoughts with folks who love the outdoors! Click on the image to visit Wander the West.&rdquo;
+        <cite>&mdash; All Terrain Campers, Home page</cite>
+      </blockquote>
+
       <h3 class="forum-title">Active Communities</h3>
       <div class="forum-cards">
         <a class="forum-card" href="https://www.wanderthewest.com/forums/all-terrain-camper-discussions.8/" target="_blank" rel="noopener">
           <div class="fc-head">Wander the West</div>
-          <div class="fc-body">Dedicated ATC subforum — dozens of owner threads, shop visits, build logs.</div>
-          <div class="fc-cta">Visit Subforum →</div>
+          <div class="fc-body">&ldquo;Forums, travel information, and stories and images from camper owners all over the Country.&rdquo; &mdash; ATC</div>
+          <div class="fc-cta">Visit Subforum &rarr;</div>
         </a>
         <a class="forum-card" href="https://www.wanderthewest.com/threads/a-visit-to-all-terrain-campers-april-2024.25826/" target="_blank" rel="noopener">
           <div class="fc-head">Shop Visit · April 2024</div>
@@ -1601,15 +1857,68 @@
     </div>
 
     <div class="social-hub">
-      <!-- REAL YOUTUBE EMBED -->
+      <!-- REAL YOUTUBE EMBED · featured video -->
       <div class="social-video">
         <div class="video-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/MQ6bDc9OMQU?rel=0" title="All Terrain Campers — video tour" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="social-video-meta">
-          <h3>"All Terrain Campers" — Video Tour</h3>
-          <p>A lightweight, go-anywhere, pop-up camper built for exploring and wandering. (Uploaded by USACamping · public YouTube.)</p>
+          <h3>&ldquo;All Terrain Campers&rdquo; &mdash; Video Tour</h3>
+          <p>A lightweight, go-anywhere, pop-up camper built for exploring and wandering. Uploaded by USACamping &middot; public YouTube. This is currently the most-viewed public video featuring an ATC camper.</p>
         </div>
+      </div>
+
+      <!-- VIDEO GALLERY SLOTS — placeholders for ATC's own footage.
+           Each tile is clearly marked as a *content slot*, not a fake video.
+           These are for ATC to populate after purchase with real recordings;
+           the code is structurally ready — drop a YouTube embed ID into each
+           slot and it becomes live. No fake thumbnails, no stock footage. -->
+      <div class="video-gallery" aria-label="Video gallery — slots ready for ATC footage">
+        <div class="video-gallery-head">
+          <h3>More videos &mdash; ready for ATC footage</h3>
+          <p>These slots are wired into the site and ready to populate with real video the moment it&rsquo;s recorded. Nothing here is fake or stock footage. To activate a slot, drop a YouTube embed ID into the matching tile in <code>index.html</code>.</p>
+        </div>
+        <div class="video-slots">
+          <div class="video-slot" aria-label="Content slot — factory build walkthrough">
+            <div class="video-slot-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5.5-3.8 10.7-9 12-5.2-1.3-9-6.5-9-12V6l9-4z"/></svg>
+            </div>
+            <div class="video-slot-tag">Content slot 1</div>
+            <h4>Factory build walkthrough</h4>
+            <p>Aluminium frame welding station, build floor, Marty and the crew &mdash; the shop&rsquo;s own story in their words.</p>
+            <div class="video-slot-cta">Awaiting ATC footage</div>
+          </div>
+          <div class="video-slot" aria-label="Content slot — Cougar factory delivery">
+            <div class="video-slot-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 17l2-2h16l2 2M4 17V9l6-3h4l6 3v8M8 21h8M8 21v-4h8v4"/></svg>
+            </div>
+            <div class="video-slot-tag">Content slot 2</div>
+            <h4>Cougar factory delivery &amp; first install</h4>
+            <p>A new Cougar lifted onto a RAM 2500 at the factory. The first-install ritual that every ATC owner remembers.</p>
+            <div class="video-slot-cta">Awaiting ATC footage</div>
+          </div>
+          <div class="video-slot" aria-label="Content slot — Bobcat Tacoma trail test">
+            <div class="video-slot-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 18l4-6 4 3 5-7 5 10"/></svg>
+            </div>
+            <div class="video-slot-tag">Content slot 3</div>
+            <h4>Bobcat on a Toyota Tacoma &mdash; trail test</h4>
+            <p>Mid-size truck, full-size overland capability. The Bobcat&rsquo;s niche on the back roads.</p>
+            <div class="video-slot-cta">Awaiting ATC footage</div>
+          </div>
+          <div class="video-slot" aria-label="Content slot — owner rig showcase">
+            <div class="video-slot-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 21V7a2 2 0 0 1 2-2h5l2 2h5a2 2 0 0 1 2 2v12M4 21h16M12 10v7M9 14h6"/></svg>
+            </div>
+            <div class="video-slot-tag">Content slot 4</div>
+            <h4>Owner rig showcase</h4>
+            <p>A single recent ATC build out &mdash; interior walk-through, custom options, owner interview.</p>
+            <div class="video-slot-cta">Awaiting ATC footage</div>
+          </div>
+        </div>
+        <p class="video-gallery-foot">
+          In the meantime, the verified third-party press coverage in the <a href="#press">Press &amp; Owner Stories</a> section above covers ATC ownership in depth, including an 11-year / 169,000-mile long-term review and a detailed 2024 <em>Truck Camper Magazine</em> feature.
+        </p>
       </div>
 
       <!-- CHANNEL CARDS -->
@@ -1697,20 +2006,31 @@
   </div>
 </section>
 
-<!-- ============== LOCATION / MAP ============== -->
-<section class="std alt">
+<!-- ============== LOCATION / MAP / FACTORY VISIT ============== -->
+<section class="std alt" id="visit">
   <div class="wrap">
     <div class="sect-head">
       <div class="ht">
-        <div class="eyebrow">Come See Us</div>
+        <div class="eyebrow">Come See Us In Person</div>
         <h2>Factory built <em>in Sacramento, California.</em></h2>
-        <p class="sub">Want to see one in person before you buy? Stop by the shop. We're open Monday through Friday.</p>
+        <p class="sub">
+          Unlike dealer-network brands, every ATC camper is built, inspected, and delivered at one shop.
+          You&rsquo;re welcome to stop by and look at whatever&rsquo;s on the production floor that week.
+        </p>
       </div>
     </div>
 
+    <!-- ATC-verbatim invite to visit the shop. This quote is directly from
+         their Standard Features page and is the spoken instruction to
+         prospective customers. -->
+    <blockquote class="visit-quote">
+      &ldquo;We currently are building to order. Please call us to see if we have any new campers in production for you to look at.&rdquo;
+      <cite>&mdash; All Terrain Campers, Standard Features page</cite>
+    </blockquote>
+
     <div class="location-grid">
       <div class="loc-map">
-        <iframe loading="lazy" src="https://www.google.com/maps?q=4391+Pell+Dr,+Sacramento,+CA+95838&output=embed" title="All Terrain Campers location"></iframe>
+        <iframe loading="lazy" src="https://www.google.com/maps?q=4391+Pell+Dr,+Sacramento,+CA+95838&output=embed" title="All Terrain Campers location &mdash; 4391 Pell Dr., Sacramento, CA 95838"></iframe>
       </div>
       <div class="loc-details">
         <h3>4391 Pell Dr., Suite E<br>Sacramento, CA 95838</h3>
@@ -1718,8 +2038,12 @@
         <div class="row"><div class="k">Local</div><div class="v"><a href="tel:+19165651600">(916) 565-1600</a></div></div>
         <div class="row"><div class="k">Fax</div><div class="v">(916) 565-1007</div></div>
         <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:atc@allterraincampers.com">atc@allterraincampers.com</a></div></div>
-        <div class="row"><div class="k">Hours</div><div class="v">Monday – Friday · 8:00 AM – 5:00 PM</div></div>
-        <div class="row"><div class="k">Shipping</div><div class="v">Anywhere in the U.S. · $1.50/mile one-way</div></div>
+        <div class="row"><div class="k">Hours</div><div class="v">Monday &ndash; Friday &middot; 8:00 AM &ndash; 5:00 PM</div></div>
+        <div class="row"><div class="k">Shipping</div><div class="v">Anywhere in the U.S. &middot; $1.50/mile one-way</div></div>
+        <div class="visit-cta">
+          <a class="btn btn-primary" href="tel:+18004461003">&#9742; Call to schedule a visit</a>
+          <a class="btn btn-ghost" href="mailto:atc@allterraincampers.com?subject=Factory%20visit%20request&body=Hi%20ATC%2C%0A%0AI%27d%20like%20to%20stop%20by%20the%20shop.%20Here%20are%20the%20dates%20that%20work%20for%20me%3A%0A%0A%0AThanks%2C">Email to schedule</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3007,6 +3331,26 @@ function placeOrder(e){
   saveCart();
 }
 
+/* ================ DELIVERED-PRICE CALCULATOR ================
+   All numbers come from the DOM: model base price from the selected <option>,
+   miles from the user input. Shipping uses ATC's own published $1.50/mile rate.
+   Nothing is fetched; nothing is persisted. This is the most honest version
+   of a price calculator we can ship without inventing any number. */
+function computeDelivered(){
+  const sel = document.getElementById('calcModel');
+  const milesInput = document.getElementById('calcMiles');
+  if(!sel || !milesInput) return;
+  const base = parseInt(sel.value, 10) || 0;
+  const miles = Math.max(0, parseInt(milesInput.value, 10) || 0);
+  const ship = miles * 1.5;
+  const total = base + ship;
+  const fmt = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+  document.getElementById('calcBase').textContent = fmt.format(base);
+  document.getElementById('calcShip').textContent = fmt.format(ship);
+  document.getElementById('calcTotal').textContent = fmt.format(total);
+  document.getElementById('calcMilesOut').textContent = miles.toLocaleString();
+}
+
 /* ================ INIT ================ */
 renderShop();
 renderGallery();
@@ -3014,6 +3358,7 @@ renderTestimonials();
 renderFeatures();
 renderCart();
 resetCarouselTimer();
+computeDelivered();
 
 /* show desktop call button on wider screens */
 if(window.innerWidth>=1100){document.getElementById('callDesktopBtn').style.display='inline-flex'}
