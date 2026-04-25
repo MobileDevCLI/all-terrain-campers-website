@@ -15,21 +15,29 @@ The official source code for **allterraincampers.com** — a modern, mobile-frie
 
 ## What this is
 
-A **single-file static website** (`index.html`) that runs on any static-file host. No database, no server code, no build step. Just open the file in a browser and it works.
+A **plain static website** that runs on any static-file host. No database, no server code, no build step. Three plain-text source files (HTML + CSS + JavaScript) plus images and docs. The exact stack a senior web developer would have shipped this with at any point in the last 15 years.
 
-- Built in plain HTML + CSS + JavaScript
-- Zero external framework dependencies
+- Built in plain HTML + CSS + JavaScript &mdash; no framework, no bundler, no `npm install` required
 - All product photos and hero images self-hosted in `/images/`
 - Designed to deploy on Vercel (free tier), Netlify, Cloudflare Pages, or even plain web hosting (GoDaddy, etc.)
-- Content is 100% verbatim from All Terrain Campers' published website and FAQs — no invented marketing copy
+- Content is 100% verbatim from All Terrain Campers' published website and FAQs &mdash; no invented marketing copy. See `AUDIT_2026-04-24.md` for the forensic verbatim audit and `STRATEGY_AUDIT.md` for the competitive positioning analysis.
 
 ## What's in each folder
 
 ```
 all-terrain-campers-website/
-├── index.html              ← The entire website (single file)
+├── index.html              ← Markup only — sections, content, IDs, anchors
+├── css/
+│   └── main.css            ← All styles (theme + layout + sections + components)
+├── js/
+│   └── app.js              ← All behavior (data + render + handlers + init)
+│
 ├── vercel.json             ← Deploy configuration for Vercel
+├── robots.txt              ← Search-engine directive
+├── sitemap.xml             ← SEO sitemap
 ├── README.md               ← You are here
+├── AUDIT_2026-04-24.md     ← Forensic verbatim-content audit + fixes log
+├── STRATEGY_AUDIT.md       ← Competitive analysis vs FWC / Hallmark / Supertramp / Airstream
 ├── .gitignore              ← Files Git should ignore
 │
 ├── images/                 ← All photos used on the site
@@ -67,10 +75,10 @@ all-terrain-campers-website/
 
 ## How the site is built (plain English)
 
-- **One HTML file does everything.** Open `index.html` in any browser and the full site renders. No compile step.
-- **Pictures come from the `images/` folder.** If you want to change a photo, replace the file in `images/` with the same filename — the site picks up the new version automatically.
-- **Product data (the shop) lives inside `index.html`** in a JavaScript list called `PRODUCTS` near the bottom of the file. You can edit product names, prices, and descriptions directly.
-- **Model data (the campers) also lives inside `index.html`** in a JavaScript object called `MODELS`. Same pattern.
+- **Three source files, no build step.** `index.html` is the markup, `css/main.css` is the look, `js/app.js` is the behavior. Edit any of the three and the next deploy reflects the change.
+- **Pictures come from the `images/` folder.** Replace any photo with the same filename and the site picks up the new version automatically.
+- **Product data (the shop) lives in `js/app.js`** in a JavaScript list called `PRODUCTS`. Each entry has a name, price, description, and specs &mdash; edit any of those and the shop updates.
+- **Model data (the campers) also lives in `js/app.js`** in a JavaScript object called `MODELS`. Each model has its verbatim ATC quote block + spec table.
 - **FAQs and press articles** are written as plain HTML — you can type over any of them.
 
 See [`docs/CONTENT_GUIDE.md`](docs/CONTENT_GUIDE.md) for click-by-click instructions.

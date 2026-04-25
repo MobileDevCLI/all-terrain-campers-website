@@ -33,7 +33,13 @@ Once those are set up, you can edit your website from your browser — no progra
 <a name="the-basics"></a>
 ## 1. The basics — how editing works
 
-Your website lives in one file: **`index.html`**. Think of it like a big Word document with code and text mixed together. When you change the text, save, and commit, the live site updates within 30 seconds.
+Your website is made of three plain-text source files:
+
+- **`index.html`** &mdash; the markup. Holds the static text (phone numbers, addresses, FAQ questions and answers, section headings).
+- **`js/app.js`** &mdash; the dynamic data. Holds the lists you'll edit most often: products in the shop (`PRODUCTS`), camper models (`MODELS`), testimonials (`TESTIMONIALS`).
+- **`css/main.css`** &mdash; the look. Most owners never edit this; it controls colors and spacing.
+
+Most owner-level edits happen in just two places: `index.html` for static text, `js/app.js` for the lists. The instructions below tell you which file to open for each kind of edit. When you change the text, save, and commit, the live site updates within 30 seconds.
 
 **Three steps every time:**
 1. Go to https://github.com/MobileDevCLI/all-terrain-campers-website (your repo)
@@ -88,7 +94,7 @@ The phone number appears in about 12 places. Easiest way:
 
 **Shop accessories** (jacks, solar, awning, etc.):
 
-1. Open `index.html` on GitHub
+1. Open **`js/app.js`** on GitHub (not `index.html` &mdash; the shop list lives in the JavaScript file)
 2. Press Ctrl+F, search: `const PRODUCTS`
 3. Find the product you want to update. Each entry looks like:
    ```
@@ -99,7 +105,7 @@ The phone number appears in about 12 places. Easiest way:
 
 **Camper model prices** (Cougar, Ocelot, etc.):
 
-1. Search: `MODELS = {`
+1. Open **`js/app.js`** and search: `MODELS = {`
 2. Find the model. Each entry has `price:'$21,350'`
 3. Change the number (keep the dollar sign and commas here — this one shows on the page)
 4. The same price also appears in the **pricing table** further up. Search for `$21,350` and update both places.
@@ -122,7 +128,7 @@ The phone number appears in about 12 places. Easiest way:
    - Scroll down, click "Commit changes"
 
 3. **Add the product to the shop:**
-   - Open `index.html`, search: `const PRODUCTS`
+   - Open **`js/app.js`**, search: `const PRODUCTS`
    - Copy an existing entry (one line starting with `{ id:`)
    - Paste it below, between two existing entries
    - Change the fields:
@@ -159,7 +165,7 @@ If you want a **different filename**, you'll also need to update the `img:` line
 <a name="update-model"></a>
 ## 7. Update a camper model's description
 
-1. Open `index.html`, search: `const MODELS`
+1. Open **`js/app.js`**, search: `const MODELS`
 2. Find the model (e.g., `ocelot:`)
 3. Look at the `verbatim:` list — these are the quote-boxes on the model's detail page. Edit any text between the quotation marks.
 4. Look at the `specs:` list — these are the detail page's spec table. Each row is `['Label', 'Value']`.
@@ -209,7 +215,7 @@ If you want a **different filename**, you'll also need to update the `img:` line
 <a name="change-testimonial"></a>
 ## 11. Change a testimonial
 
-1. Open `index.html`, search: `const TESTIMONIALS`
+1. Open **`js/app.js`**, search: `const TESTIMONIALS`
 2. Each testimonial is a block with `photo:`, `name:`, `meta:`, and `quote:`
 3. Edit the text between the quotation marks
 4. To change a testimonial photo, upload a new photo to `images/` and change the `photo:` value to the new filename
